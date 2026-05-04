@@ -20,6 +20,10 @@ body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--b
 .sidebar a { padding: 15px 25px; text-decoration: none; color: #bbb; display: block; border-bottom: 1px solid #333; }
 .close-btn { position: absolute; top: 10px; left: 20px; font-size: 30px; color: var(--red); cursor: pointer; }
 
+/* تأثير جذب الانتباه في القائمة */
+.insta-link-side { color: #E1306C !important; font-weight: bold; animation: pulse-insta 2s infinite; }
+@keyframes pulse-insta { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
 .overlay { height: 0; width: 100%; position: fixed; z-index: 4000; top: 0; left: 0; background: var(--black); transition: 0.5s; overflow-y: auto; text-align: center; }
 
 .match-card { background: linear-gradient(135deg, #450000 0%, #d90429 100%); margin: 15px; border-radius: 20px; padding: 25px; text-align: center; }
@@ -66,6 +70,26 @@ section { padding: 20px; border-bottom: 1px solid #222; }
 .img-main { width: 100%; border-radius: 15px; border: 1px solid var(--red); margin-bottom: 15px; }
 .pos-label { color: var(--red); font-weight: bold; margin: 15px 0 10px 0; border-bottom: 1px solid #333; display: block; }
 .btn-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: bold; margin: 20px 0; }
+
+/* ستايل كرت الانستغرام الجديد */
+.insta-card {
+    background: #1a1a1a;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #333;
+    margin-top: 20px;
+}
+.insta-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
 </style>
 </head>
 
@@ -74,11 +98,15 @@ section { padding: 20px; border-bottom: 1px solid #222; }
 <div class="navbar">
 <i class="fas fa-bars" onclick="openNav()" style="font-size: 24px; color: var(--gold); cursor:pointer;"></i>
 <span style="font-weight:bold;">USMA 1937</span>
-<img src="Usma.jpeg" height="35" style="border-radius:5px;">
+<div>
+    <a href="https://www.instagram.com/salah_da.47?igsh=MWFnMXdjNWZrcm0zbQ==" target="_blank" style="color: #E1306C; margin-left: 15px; font-size: 22px;"><i class="fab fa-instagram"></i></a>
+    <img src="Usma.jpeg" height="35" style="border-radius:5px; vertical-align: middle;">
+</div>
 </div>
 
 <div id="mySidebar" class="sidebar">
 <span class="close-btn" onclick="closeNav()">&times;</span>
+<a href="https://www.instagram.com/salah_da.47?igsh=MWFnMXdjNWZrcm0zbQ==" class="insta-link-side" target="_blank"><i class="fab fa-instagram"></i> تابع المطور هنا</a>
 <a href="#" onclick="openOverlay('market')">🛒 سوق البهجة</a>
 <a href="#" onclick="openOverlay('rides')">🚗 توصيلة الأنصار</a>
 <a href="#news" onclick="closeNav()">📰 الأخبار</a>
@@ -199,6 +227,17 @@ allowfullscreen>
 <span>Alger offender</span>
 </div>
 </div>
+</section>
+
+<section style="background: #111;">
+    <div class="insta-card">
+        <i class="fab fa-instagram" style="font-size: 40px; color: #E1306C;"></i>
+        <h3 style="margin: 10px 0;">هل تريد تصميم موقع مثل هذا؟</h3>
+        <p style="font-size: 0.85rem; color: #aaa;">تابعني لتصلك أحدث أخبار الاتحاد وتصاميم حصرية للبهجة</p>
+        <a href="https://www.instagram.com/salah_da.47?igsh=MWFnMXdjNWZrcm0zbQ==" target="_blank" class="insta-btn">
+            Follow @salah_da.47
+        </a>
+    </div>
 </section>
 
 <div style="text-align:center; padding:20px; color:var(--gold); font-weight:bold;">صمم من طرف SALAH_DADDI 🔴⚫</div>
