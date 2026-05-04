@@ -1,204 +1,225 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USMA 1937 | SALAH_DADDI</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root { --red: #d90429; --black: #0d0d0d; --dark: #1a1a1a; --gold: #efac05; --white: #ffffff; }
-        body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--black); color: var(--white); overflow-x: hidden; scroll-behavior: smooth; }
-        
-        .navbar { background: var(--dark); padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--red); position: sticky; top: 0; z-index: 1000; }
-        .sidebar { height: 100%; width: 0; position: fixed; z-index: 3000; top: 0; right: 0; background: var(--dark); transition: 0.5s; overflow-x: hidden; border-left: 2px solid var(--red); padding-top: 60px; }
-        .sidebar a { padding: 15px 25px; text-decoration: none; color: #bbb; display: block; border-bottom: 1px solid #333; }
-        .close-btn { position: absolute; top: 10px; left: 20px; font-size: 30px; color: var(--red); cursor: pointer; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .overlay { height: 0; width: 100%; position: fixed; z-index: 4000; top: 0; left: 0; background: var(--black); transition: 0.5s; overflow-y: auto; text-align: center; }
+<title>USMA 1937 | SALAH_DADDI</title>
 
-        .match-card { background: linear-gradient(135deg, #450000 0%, #d90429 100%); margin: 15px; border-radius: 20px; padding: 25px; text-align: center; }
-        .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 15px 0; }
-        .timer-unit { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; }
-        .timer-num { font-size: 1.4rem; font-weight: bold; color: var(--gold); display: block; }
+<meta name="description" content="موقع اتحاد العاصمة - أخبار، مباريات، تذاكر، أنصار">
+<meta name="keywords">
 
-        .btn-advertise-big {
-            background: var(--gold);
-            color: var(--black);
-            padding: 18px 30px;
-            border-radius: 15px;
-            text-decoration: none;
-            display: inline-block;
-            margin: 20px auto 10px auto;
-            font-weight: bold;
-            font-size: 1.2rem;
-            width: fit-content;
-            box-shadow: 0 5px 15px rgba(239, 172, 5, 0.5);
-            animation: pumping 1.5s infinite;
-            transition: transform 0.2s;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        @keyframes pumping {
-            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(239, 172, 5, 0.5); }
-            50% { transform: scale(1.08); box-shadow: 0 10px 25px rgba(239, 172, 5, 0.7); }
-            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(239, 172, 5, 0.5); }
-        }
+<style>
+:root { --red: #d90429; --black: #0d0d0d; --dark: #1a1a1a; --gold: #efac05; --white: #ffffff; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: var(--black); color: var(--white); overflow-x: hidden; scroll-behavior: smooth; }
 
-        .trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
-        .trophy-card { background: linear-gradient(145deg, #1a1a1a, #000); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid var(--gold); }
-        .trophy-card i { font-size: 25px; color: var(--gold); margin-bottom: 8px; }
+.navbar { background: var(--dark); padding: 15px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--red); position: sticky; top: 0; z-index: 1000; }
+.sidebar { height: 100%; width: 0; position: fixed; z-index: 3000; top: 0; right: 0; background: var(--dark); transition: 0.5s; overflow-x: hidden; border-left: 2px solid var(--red); padding-top: 60px; }
+.sidebar a { padding: 15px 25px; text-decoration: none; color: #bbb; display: block; border-bottom: 1px solid #333; }
+.close-btn { position: absolute; top: 10px; left: 20px; font-size: 30px; color: var(--red); cursor: pointer; }
 
-        section { padding: 20px; border-bottom: 1px solid #222; }
-        .title-sec { color: var(--gold); border-right: 5px solid var(--red); padding-right: 15px; margin-bottom: 20px; font-size: 1.3rem; }
-        .players-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
-        .player-card { background: #1a1a1a; padding: 10px; border-radius: 8px; text-align: center; border: 1px solid #333; font-size: 0.8rem; line-height: 1.3; }
-        
-        .ultras-grid { display: flex; flex-direction: column; gap: 15px; }
-        .ultra-item { display: flex; align-items: center; background: #1a1a1a; padding: 15px; border-radius: 15px; border-right: 4px solid var(--red); }
-        .ultra-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-left: 15px; border: 2px solid var(--gold); }
+.overlay { height: 0; width: 100%; position: fixed; z-index: 4000; top: 0; left: 0; background: var(--black); transition: 0.5s; overflow-y: auto; text-align: center; }
 
-        .img-main { width: 100%; border-radius: 15px; border: 1px solid var(--red); margin-bottom: 15px; }
-        .pos-label { color: var(--red); font-weight: bold; margin: 15px 0 10px 0; border-bottom: 1px solid #333; display: block; }
-        .btn-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: bold; margin: 20px 0; }
-    </style>
+.match-card { background: linear-gradient(135deg, #450000 0%, #d90429 100%); margin: 15px; border-radius: 20px; padding: 25px; text-align: center; }
+
+.timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 15px 0; }
+.timer-unit { background: rgba(0,0,0,0.3); padding: 10px; border-radius: 10px; }
+.timer-num { font-size: 1.4rem; font-weight: bold; color: var(--gold); display: block; }
+
+.btn-advertise-big {
+background: var(--gold);
+color: var(--black);
+padding: 18px 30px;
+border-radius: 15px;
+text-decoration: none;
+display: inline-block;
+margin: 20px auto 10px auto;
+font-weight: bold;
+font-size: 1.2rem;
+width: fit-content;
+box-shadow: 0 5px 15px rgba(239, 172, 5, 0.5);
+animation: pumping 1.5s infinite;
+}
+
+@keyframes pumping {
+0% { transform: scale(1); }
+50% { transform: scale(1.08); }
+100% { transform: scale(1); }
+}
+
+.trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
+.trophy-card { background: linear-gradient(145deg, #1a1a1a, #000); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid var(--gold); }
+.trophy-card i { font-size: 25px; color: var(--gold); margin-bottom: 8px; }
+
+section { padding: 20px; border-bottom: 1px solid #222; }
+.title-sec { color: var(--gold); border-right: 5px solid var(--red); padding-right: 15px; margin-bottom: 20px; font-size: 1.3rem; }
+
+.players-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
+.player-card { background: #1a1a1a; padding: 10px; border-radius: 8px; text-align: center; border: 1px solid #333; font-size: 0.8rem; line-height: 1.3; }
+
+.ultras-grid { display: flex; flex-direction: column; gap: 15px; }
+.ultra-item { display: flex; align-items: center; background: #1a1a1a; padding: 15px; border-radius: 15px; border-right: 4px solid var(--red); }
+.ultra-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-left: 15px; border: 2px solid var(--gold); }
+
+.img-main { width: 100%; border-radius: 15px; border: 1px solid var(--red); margin-bottom: 15px; }
+.pos-label { color: var(--red); font-weight: bold; margin: 15px 0 10px 0; border-bottom: 1px solid #333; display: block; }
+.btn-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: bold; margin: 20px 0; }
+</style>
 </head>
+
 <body>
 
-    <div class="navbar">
-        <i class="fas fa-bars" onclick="openNav()" style="font-size: 24px; color: var(--gold); cursor:pointer;"></i>
-        <span style="font-weight:bold;">USMA 1937</span>
-        <img src="Usma.jpeg" height="35" style="border-radius:5px;">
-    </div>
+<div class="navbar">
+<i class="fas fa-bars" onclick="openNav()" style="font-size: 24px; color: var(--gold); cursor:pointer;"></i>
+<span style="font-weight:bold;">USMA 1937</span>
+<img src="Usma.jpeg" height="35" style="border-radius:5px;">
+</div>
 
-    <div id="mySidebar" class="sidebar">
-        <span class="close-btn" onclick="closeNav()">&times;</span>
-        <a href="#" onclick="openOverlay('market')">🛒 سوق البهجة</a>
-        <a href="#" onclick="openOverlay('rides')">🚗 توصيلة الأنصار</a>
-        <a href="#news" onclick="closeNav()">📰 الأخبار</a>
-        <a href="#trophies" onclick="closeNav()">🏆 الألقاب</a>
-        <a href="#players" onclick="closeNav()">👕 اللاعبين</a>
-        <a href="#ultras" onclick="closeNav()">🥁 المجموعات</a>
-        <a href="https://tadkirati.mjs.gov.dz" target="_blank">🎫 تذكرتي</a>
-    </div>
+<div id="mySidebar" class="sidebar">
+<span class="close-btn" onclick="closeNav()">&times;</span>
+<a href="#" onclick="openOverlay('market')">🛒 سوق البهجة</a>
+<a href="#" onclick="openOverlay('rides')">🚗 توصيلة الأنصار</a>
+<a href="#news" onclick="closeNav()">📰 الأخبار</a>
+<a href="#trophies" onclick="closeNav()">🏆 الألقاب</a>
+<a href="#players" onclick="closeNav()">👕 اللاعبين</a>
+<a href="#ultras" onclick="closeNav()">🥁 المجموعات</a>
+<a href="https://tadkirati.mjs.gov.dz" target="_blank">🎫 تذكرتي</a>
+</div>
 
-    <div id="market" class="overlay">
-        <span onclick="closeOverlay('market')" class="close-btn">&times;</span>
-        <div style="padding-top:100px;">
-            <h2 style="color:var(--gold)">🛒 سوق البهجة</h2>
-            <a href="https://wa.me/213671746345" class="btn-wa">تواصل للإعلان</a>
-        </div>
-    </div>
+<div id="market" class="overlay">
+<span onclick="closeOverlay('market')" class="close-btn">&times;</span>
+<div style="padding-top:100px;">
+<h2 style="color:var(--gold)">🛒 سوق البهجة</h2>
+<a href="https://wa.me/213671746345" class="btn-wa">تواصل للإعلان</a>
+</div>
+</div>
 
-    <div id="rides" class="overlay">
-        <span onclick="closeOverlay('rides')" class="close-btn">&times;</span>
-        <div style="padding-top:100px;">
-            <h2 style="color:var(--gold)">🚗 توصيلة الأنصار</h2>
-            <a href="https://wa.me/213671746345" class="btn-wa" style="background:var(--red)">أعلن عن توصيلة</a>
-        </div>
-    </div>
+<div id="rides" class="overlay">
+<span onclick="closeOverlay('rides')" class="close-btn">&times;</span>
+<div style="padding-top:100px;">
+<h2 style="color:var(--gold)">🚗 توصيلة الأنصار</h2>
+<a href="https://wa.me/213671746345" class="btn-wa" style="background:var(--red)">أعلن عن توصيلة</a>
+</div>
+</div>
 
-    <section>
-        <div class="match-card">
-            <h2 style="margin:0;">🏆 نهائي الكونفيدرالية</h2>
-            <div class="timer-grid">
-                <div class="timer-unit"><span class="timer-num" id="days">0</span><span>يوم</span></div>
-                <div class="timer-unit"><span class="timer-num" id="hours">0</span><span>ساعة</span></div>
-                <div class="timer-unit"><span class="timer-num" id="min">0</span><span>دقيقة</span></div>
-                <div class="timer-unit"><span class="timer-num" id="sec">0</span><span>ثانية</span></div>
-            </div>
-            <img src="Salah.jpeg" class="img-main" style="max-height:180px; width:auto;">
-            <a href="https://wa.me/213671746345" class="btn-advertise-big"><i class="fas fa-bullhorn"></i> أعلن معنا هنا!</a>
-        </div>
-    </section>
+<section>
+<div class="match-card">
+<h2 style="margin:0;">🏆 نهائي الكونفيدرالية</h2>
+<div class="timer-grid">
+<div class="timer-unit"><span class="timer-num" id="days">0</span><span>يوم</span></div>
+<div class="timer-unit"><span class="timer-num" id="hours">0</span><span>ساعة</span></div>
+<div class="timer-unit"><span class="timer-num" id="min">0</span><span>دقيقة</span></div>
+<div class="timer-unit"><span class="timer-num" id="sec">0</span><span>ثانية</span></div>
+</div>
+<img src="Salah.jpeg" class="img-main" style="max-height:180px; width:auto;">
+<a href="https://wa.me/213671746345" class="btn-advertise-big"><i class="fas fa-bullhorn"></i> أعلن معنا هنا!</a>
+</div>
+</section>
 
-    <section id="trophies">
-        <h2 class="title-sec">🏆 خزينة الألقاب</h2>
-        <div class="trophy-grid">
-            <div class="trophy-card"><i class="fas fa-trophy"></i><br><b>8</b><br><small>بطولة</small></div>
-            <div class="trophy-card"><i class="fas fa-medal"></i><br><b>10</b><br><small>كأس الجمهورية</small></div>
-            <div class="trophy-card"><i class="fas fa-award"></i><br><b>2</b><br><small>سوبر جزائري</small></div>
-            <div class="trophy-card"><i class="fas fa-globe-africa"></i><br><b>1</b><br><small>كونفيدرالية</small></div>
-            <div class="trophy-card"><i class="fas fa-star"></i><br><b>1</b><br><small>سوبر إفريقي</small></div>
-            <div class="trophy-card"><i class="fas fa-flag"></i><br><b>1</b><br><small>كأس العرب</small></div>
-        </div>
-    </section>
+<section id="trophies">
+<h2 class="title-sec">🏆 خزينة الألقاب</h2>
+<div class="trophy-grid">
+<div class="trophy-card"><i class="fas fa-trophy"></i><br><b>8</b><br><small>بطولة</small></div>
+<div class="trophy-card"><i class="fas fa-medal"></i><br><b>10</b><br><small>كأس الجمهورية</small></div>
+<div class="trophy-card"><i class="fas fa-award"></i><br><b>2</b><br><small>سوبر جزائري</small></div>
+<div class="trophy-card"><i class="fas fa-globe-africa"></i><br><b>1</b><br><small>كونفيدرالية</small></div>
+<div class="trophy-card"><i class="fas fa-star"></i><br><b>1</b><br><small>سوبر إفريقي</small></div>
+<div class="trophy-card"><i class="fas fa-flag"></i><br><b>1</b><br><small>كأس العرب</small></div>
+</div>
+</section>
 
-    <section id="news">
-        <h2 class="title-sec">📰 الأخبار</h2>
-        <div style="margin-bottom:20px;">
-            <img src="IMG_20260503_181805.jpg" style="width:100%; border-radius:10px;">
-            <p>تربص مغلق للفريق في سيدي موسى</p>
-        </div>
-        <div>
-            <img src="images.jpeg" style="width:100%; border-radius:10px;">
-            <p>احتفالات الكأس العاشرة مستمرة</p>
-        </div>
-    </section>
+<section id="news">
+<h2 class="title-sec">📰 الأخبار</h2>
 
-    <section id="players">
-        <h2 class="title-sec">👕 قائمة اللاعبين</h2>
-        <img src="Images (1).jpeg" class="img-main">
-        
-        <span class="pos-label">🧤 حراس المرمى</span>
-        <div class="players-grid">
-            <div class="player-card">عبد المؤمن سيفور</div><div class="player-card">كمال صوفي</div><div class="player-card">أسامة بن بوط</div>
-        </div>
+<!-- 🔴 الفيديو الجديد -->
+<div style="margin-bottom:20px;">
+<iframe 
+src="https://www.youtube.com/embed/rZGo6h2ccY4?autoplay=1&mute=1"
+allow="autoplay; encrypted-media"
+allowfullscreen>
+</iframe>
+<p>كواليس نهائي كأس الجزائر</p>
+</div>
 
-        <span class="pos-label">🛡️ الدفاع</span>
-        <div class="players-grid">
-            <div class="player-card">وليد كردي</div><div class="player-card">سيف الدين أثمانيا</div><div class="player-card">شي مالون</div>
-            <div class="player-card">حسين دهيري</div><div class="player-card">سعدي رضواني</div><div class="player-card">ريان محروز</div>
-            <div class="player-card">إلياس شتي</div><div class="player-card">أشرف عبادة</div><div class="player-card">هيثم لعويفي</div>
-        </div>
+<div style="margin-bottom:20px;">
+<img src="IMG_20260503_181805.jpg" style="width:100%; border-radius:10px;">
+<p>تربص مغلق للفريق في سيدي موسى</p>
+</div>
 
-        <span class="pos-label">⚙️ وسط الميدان</span>
-        <div class="players-grid">
-            <div class="player-card">زكريا دراوي</div><div class="player-card">إسلام مريلي</div><div class="player-card">غلادي ليكونزا</div>
-            <div class="player-card">إبراهيم بن زازة</div><div class="player-card">عمر بولاراس</div><div class="player-card">إيمي تيندينغ</div>
-        </div>
+<div>
+<img src="images.jpeg" style="width:100%; border-radius:10px;">
+<p>احتفالات الكأس العاشرة مستمرة</p>
+</div>
+</section>
 
-        <span class="pos-label">⚡ الهجوم</span>
-        <div class="players-grid">
-            <div class="player-card">أحمد خالدِي</div><div class="player-card">رياض بن عياد</div><div class="player-card">خالد بوسليو</div>
-            <div class="player-card">منصف بوتاوي</div><div class="player-card">محمد بودربارة</div><div class="player-card">حسام الدين غشة</div>
-            <div class="player-card">درامان كاماتي</div>
-        </div>
-    </section>
+<section id="players">
+<h2 class="title-sec">👕 قائمة اللاعبين</h2>
+<img src="Images (1).jpeg" class="img-main">
 
-    <section id="ultras">
-        <h2 class="title-sec">🥁 المجموعات (Ultras)</h2>
-        <div class="ultras-grid">
-            <div class="ultra-item">
-                <img src="اتحاد-العاصمة-1.jpg" class="ultra-img">
-                <span>Ouled El Bahdja</span>
-            </div>
-            <div class="ultra-item">
-                <img src="Images(1).jpeg" class="ultra-img">
-                <span>Ultras Red Boys</span>
-            </div>
-            <div class="ultra-item">
-                <img src="images(1)(1).jpeg" class="ultra-img">
-                <span>رياس الدزاير</span>
-            </div>
-        </div>
-    </section>
+<span class="pos-label">🧤 حراس المرمى</span>
+<div class="players-grid">
+<div class="player-card">عبد المؤمن سيفور</div><div class="player-card">كمال صوفي</div><div class="player-card">أسامة بن بوط</div>
+</div>
 
-    <div style="text-align:center; padding:20px; color:var(--gold); font-weight:bold;">صمم من طرف SALAH_DADDI 🔴⚫</div>
+<span class="pos-label">🛡️ الدفاع</span>
+<div class="players-grid">
+<div class="player-card">وليد كردي</div><div class="player-card">سيف الدين أثمانيا</div><div class="player-card">شي مالون</div>
+<div class="player-card">حسين دهيري</div><div class="player-card">سعدي رضواني</div><div class="player-card">ريان محروز</div>
+<div class="player-card">إلياس شتي</div><div class="player-card">أشرف عبادة</div><div class="player-card">هيثم لعويفي</div>
+</div>
 
-    <script>
-        function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
-        function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
-        function openOverlay(id) { document.getElementById(id).style.height = "100%"; closeNav(); }
-        function closeOverlay(id) { document.getElementById(id).style.height = "0"; }
+<span class="pos-label">⚙️ وسط الميدان</span>
+<div class="players-grid">
+<div class="player-card">زكريا دراوي</div><div class="player-card">إسلام مريلي</div><div class="player-card">غلادي ليكونزا</div>
+<div class="player-card">إبراهيم بن زازة</div><div class="player-card">عمر بولاراس</div><div class="player-card">إيمي تيندينغ</div>
+</div>
 
-        var finalDate = new Date("May 9, 2026 20:00:00").getTime();
-        setInterval(function() {
-            var now = new Date().getTime();
-            var d = finalDate - now;
-            document.getElementById("days").innerHTML = Math.floor(d / (1000 * 60 * 60 * 24));
-            document.getElementById("hours").innerHTML = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            document.getElementById("min").innerHTML = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-            document.getElementById("sec").innerHTML = Math.floor((d % (1000 * 60)) / 1000);
-        }, 1000);
-    </script>
+<span class="pos-label">⚡ الهجوم</span>
+<div class="players-grid">
+<div class="player-card">أحمد خالدِي</div><div class="player-card">رياض بن عياد</div><div class="player-card">خالد بوسليو</div>
+<div class="player-card">منصف بوتاوي</div><div class="player-card">محمد بودربارة</div><div class="player-card">حسام الدين غشة</div>
+<div class="player-card">درامان كاماتي</div>
+</div>
+</section>
+
+<section id="ultras">
+<h2 class="title-sec">🥁 المجموعات (Ultras)</h2>
+<div class="ultras-grid">
+<div class="ultra-item">
+<img src="اتحاد-العاصمة-1.jpg" class="ultra-img">
+<span>Ouled El Bahdja</span>
+</div>
+<div class="ultra-item">
+<img src="Images(1).jpeg" class="ultra-img">
+<span>Ultras Red Boys</span>
+</div>
+<div class="ultra-item">
+<img src="images(1)(1).jpeg" class="ultra-img">
+<span>رياس الدزاير</span>
+</div>
+</div>
+</section>
+
+<div style="text-align:center; padding:20px; color:var(--gold); font-weight:bold;">صمم من طرف SALAH_DADDI 🔴⚫</div>
+
+<script>
+function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
+function closeNav() { document.getElementById("mySidebar").style.width = "0"; }
+function openOverlay(id) { document.getElementById(id).style.height = "100%"; closeNav(); }
+function closeOverlay(id) { document.getElementById(id).style.height = "0"; }
+
+var finalDate = new Date("May 9, 2026 20:00:00").getTime();
+setInterval(function() {
+var now = new Date().getTime();
+var d = finalDate - now;
+document.getElementById("days").innerHTML = Math.floor(d / (1000 * 60 * 60 * 24));
+document.getElementById("hours").innerHTML = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+document.getElementById("min").innerHTML = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
+document.getElementById("sec").innerHTML = Math.floor((d % (1000 * 60)) / 1000);
+}, 1000);
+</script>
+
 </body>
 </html>
