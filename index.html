@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <!-- Google Tag Manager -->
-<script>
+  <script>
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -10,8 +9,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NRRK6GQC');
 </script>
-<!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>USMA 1937 | SALAH_DADDI</title>
     
@@ -35,6 +33,24 @@ f.parentNode.insertBefore(j,f);
             color: var(--white); 
             overflow-x: hidden; scroll-behavior: smooth; 
         }
+
+        /* تنسيق الخبر العاجل الجديد */
+        .breaking-news {
+            background: var(--red);
+            color: white;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 10px;
+            border: 2px solid var(--gold);
+            text-align: right;
+            direction: rtl;
+            font-weight: bold;
+            box-shadow: 0 0 20px rgba(217, 4, 41, 0.5);
+            animation: pumping 1.5s infinite;
+        }
+        
+        .breaking-news h4 { margin: 0 0 5px 0; color: var(--gold); font-size: 1.2rem; }
+        .breaking-news p { margin: 5px 0; font-size: 0.95rem; line-height: 1.6; }
 
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
@@ -87,7 +103,16 @@ f.parentNode.insertBefore(j,f);
             animation: pumping 1.5s infinite;
         }
 
-        @keyframes pumping { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+        .btn-ticket-big {
+            background: var(--red); color: var(--white); padding: 18px 30px; 
+            border-radius: 15px; text-decoration: none; display: inline-block; 
+            margin-top: 15px; font-weight: bold; font-size: 1.1rem; 
+            box-shadow: 0 0 15px rgba(217, 4, 41, 0.4);
+            animation: pumping 1.5s infinite;
+            border: 1px solid var(--gold);
+        }
+
+        @keyframes pumping { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
         .trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
         .trophy-card { 
@@ -132,13 +157,11 @@ f.parentNode.insertBefore(j,f);
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
 <noscript>
 <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRRK6GQC"
 height="0" width="0" style="display:none;visibility:hidden"></iframe>
 </noscript>
-<!-- End Google Tag Manager -->
-    <img src="Usma.jpeg" class="bg-logo" alt="USMA Background">
+<img src="Usma.jpeg" class="bg-logo" alt="USMA Background">
 
     <div id="music-control" onclick="toggleMusic()">
         <i id="music-icon" class="fas fa-music" style="color: white; font-size: 20px;"></i>
@@ -155,6 +178,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             <a href="https://www.instagram.com/salah_da.47" target="_blank" style="color: #E1306C; margin-left: 15px; font-size: 22px;"><i class="fab fa-instagram"></i></a>
             <img src="Usma.jpeg" height="35" style="border-radius:5px; vertical-align: middle;">
         </div>
+    </div>
+
+    <div class="breaking-news">
+        <h4>🚨 خـبـر عـاجـل :</h4>
+        <p>• عقب معاينة لجنة الهيئة الوطنية للرقابة التقنية للبناء (CTC)، صبيحة اليوم، للمدرجات العلوية لملعب خمسة جويلية، تم منح الضوء الأخضر رسميًا لفتح هذه المدرجات بمناسبة نهائي كأس الكونفيدرالية الإفريقية بين اتحاد العاصمة والزمالك المصري 🏟️ .</p>
+        <p>• وسيتم طرح 50.000 تذكرة صباح الغد، على أن تُفتح المدرجات من الرقم 8 إلى غاية الرقم 21، في حين ستبقى المدرجات الخالية من الكراسي مغلقة 🎫 .</p>
     </div>
 
     <div id="mySidebar" class="sidebar">
@@ -201,6 +230,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             <img src="Salah.jpeg" class="img-main" style="max-height:180px; width:auto;">
             <br>
             <a href="https://wa.me/213671746345" class="btn-advertise-big"><i class="fas fa-bullhorn"></i> أعلن معنا هنا!</a>
+            <br>
+            <a href="https://tadkirati.mjs.gov.dz" target="_blank" class="btn-ticket-big"><i class="fas fa-ticket-alt"></i> اسحب تذكرتك قبل النفاذ</a>
         </div>
     </section>
 
@@ -297,19 +328,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         function openOverlay(id) { document.getElementById(id).style.height = "100%"; closeNav(); }
         function closeOverlay(id) { document.getElementById(id).style.height = "0"; }
 
-        // كود تشغيل الموسيقى - محسن للأيفون
         var myAudio = document.getElementById("bg-music");
         var musicIcon = document.getElementById("music-icon");
         var musicControl = document.getElementById("music-control");
 
         function toggleMusic() {
             if (myAudio.paused) {
-                // محاولة التشغيل مع معالجة الـ Promise (ضروري للأيفون)
                 var playPromise = myAudio.play();
-                
                 if (playPromise !== undefined) {
                     playPromise.then(function() {
-                        // نجح التشغيل
                         musicIcon.classList.remove("fa-music");
                         musicIcon.classList.add("fa-pause");
                         musicControl.style.animation = "pumping 1.5s infinite";
@@ -325,7 +352,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             }
         }
 
-        // المؤقت التنازلي
         var finalDate = new Date("May 9, 2026 20:00:00").getTime();
         setInterval(function() {
             var now = new Date().getTime();
