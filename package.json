@@ -1,0 +1,14 @@
+{
+  "name": "usma-off-1937",
+  "version": "1.0.0",
+  "description": "USMA 1937 - Algerian football club website",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "keywords": ["usma", "football", "algeria"],
+  "author": "SALAH_DADDI",
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
