@@ -124,6 +124,12 @@ f.parentNode.insertBefore(j,f);
         section { padding: 20px; border-bottom: 1px solid #333; }
         .title-sec { color: var(--gold); border-right: 5px solid var(--red); padding-right: 15px; margin-bottom: 20px; font-size: 1.3rem; font-weight: 900; }
 
+        /* تنسيق قسم القميص الجديد */
+        .jersey-section { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 20px; margin: 15px; border: 1px solid var(--gold); }
+        .jersey-img { width: 100%; max-width: 300px; border-radius: 15px; transition: 0.4s; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .jersey-img:hover { transform: scale(1.05) rotate(2deg); }
+        .order-label { display: block; margin-top: 15px; color: var(--gold); font-weight: bold; font-size: 1.2rem; animation: pumping 1.5s infinite; }
+
         .players-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
         .player-card { 
             background: rgba(30, 30, 30, 0.8); padding: 10px; border-radius: 8px; 
@@ -182,7 +188,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
     <div class="breaking-news">
         <h4>🚨 خـبـر عـاجـل :</h4>
-        <p>• فتح موقع تذكرتي على الساعة 10:00 وسيتم توزيع 50.000 تذكرة 🎫 .</p>
+        <p>• تم فتح الموقع اسحب تذكرتك قبل النفاذ  🎫 .</p>
     </div>
 
     <div id="mySidebar" class="sidebar">
@@ -226,11 +232,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
                 <div class="timer-unit"><span class="timer-num" id="min">0</span><span>دقيقة</span></div>
                 <div class="timer-unit"><span class="timer-num" id="sec">0</span><span>ثانية</span></div>
             </div>
-            <img src="Salah.jpeg" class="img-main" style="max-height:180px; width:auto;">
             <br>
             <a href="https://wa.me/213671746345" class="btn-advertise-big"><i class="fas fa-bullhorn"></i> أعلن معنا هنا!</a>
             <br>
             <a href="https://digiticket.dz/" target="_blank" class="btn-ticket-big"><i class="fas fa-ticket-alt"></i> اسحب تذكرتك قبل النفاذ</a>
+        </div>
+    </section>
+
+    <section id="jersey">
+        <h2 class="title-sec">👕 القميص الرسمي للاتحاد</h2>
+        <div class="jersey-section">
+            <a href="https://wa.me/213671746345">
+                <img src="1778147569999.jpg" class="jersey-img" alt="USMA Jersey">
+            </a>
+            <span class="order-label"><i class="fab fa-whatsapp"></i> للطلب اضغط على الصورة</span>
         </div>
     </section>
 
