@@ -34,64 +34,23 @@ f.parentNode.insertBefore(j,f);
             overflow-x: hidden; scroll-behavior: smooth; 
         }
 
-        /* تنسيق نتيجة المباراة الجديد */
-        .result-box {
-            background: rgba(26, 26, 26, 0.9);
-            margin: 15px;
-            padding: 20px;
-            border-radius: 20px;
-            border: 2px solid var(--red);
-            text-align: center;
-            box-shadow: 0 0 25px rgba(217, 4, 41, 0.5);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .result-title { color: var(--gold); font-weight: 900; font-size: 1.2rem; margin-bottom: 10px; display: block; }
-        
-        .score-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 10px;
-        }
-
-        .score-num {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: var(--white);
-            text-shadow: 2px 2px 10px var(--red);
-        }
-
-        .vs-text { color: var(--gold); font-size: 1.5rem; font-weight: bold; }
-
-        .win-label {
-            background: var(--red);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 50px;
-            font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
-            animation: pumping 1.5s infinite;
-        }
-
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
+        /* تعديل اللوغو الخلفي ليكون بدون خلفية وشفاف */
         .bg-logo {
             position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            width: 70%; opacity: 0.05; z-index: -1; pointer-events: none;
-            animation: pulseLogo 6s infinite ease-in-out;
+            width: 85%; opacity: 0.12; z-index: -1; pointer-events: none;
+            mix-blend-mode: lighten; /* لإزالة الخلفية السوداء وجعلها شفافة */
+            animation: pulseLogo 8s infinite ease-in-out;
         }
 
         @keyframes pulseLogo {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.04; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.07; }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.08; }
+            50% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.15; }
         }
 
         .navbar { 
@@ -110,87 +69,75 @@ f.parentNode.insertBefore(j,f);
         .sidebar a:hover { background: var(--red); color: white; }
         .close-btn { position: absolute; top: 10px; left: 20px; font-size: 30px; color: var(--red); cursor: pointer; }
 
+        .video-box {
+            background: rgba(26, 26, 26, 0.9);
+            margin: 20px 15px 15px 15px;
+            padding: 15px;
+            border-radius: 20px;
+            border: 2px solid var(--red);
+            text-align: center;
+            box-shadow: 0 0 25px rgba(217, 4, 41, 0.5);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            border: 1px solid var(--gold);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
         .match-card { 
             background: rgba(217, 4, 41, 0.15); backdrop-filter: blur(10px);
             margin: 15px; border-radius: 20px; padding: 25px; text-align: center; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .timer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; margin: 15px 0; }
-        .timer-unit { background: rgba(0,0,0,0.5); padding: 10px; border-radius: 10px; border: 1px solid var(--red); }
-        .timer-num { font-size: 1.4rem; font-weight: bold; color: var(--gold); display: block; }
-
-        .btn-advertise-big {
-            background: var(--gold); color: var(--black); padding: 18px 30px; 
-            border-radius: 15px; text-decoration: none; display: inline-block; 
-            margin-top: 20px; font-weight: bold; font-size: 1.1rem; 
-            box-shadow: 0 0 15px rgba(239, 172, 5, 0.4);
-            animation: pumping 1.5s infinite;
-        }
-
-        .btn-ticket-big {
-            background: var(--red); color: var(--white); padding: 18px 30px; 
-            border-radius: 15px; text-decoration: none; display: inline-block; 
-            margin-top: 15px; font-weight: bold; font-size: 1.1rem; 
-            box-shadow: 0 0 15px rgba(217, 4, 41, 0.4);
-            animation: pumping 1.5s infinite;
-            border: 1px solid var(--gold);
-        }
+        .btn-advertise-big { background: var(--gold); color: var(--black); padding: 18px 30px; border-radius: 15px; text-decoration: none; display: inline-block; font-weight: bold; animation: pumping 1.5s infinite; }
 
         @keyframes pumping { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
 
-        .trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 10px; }
-        .trophy-card { 
-            background: rgba(26, 26, 26, 0.8); 
-            padding: 15px; border-radius: 15px; text-align: center; border: 1px solid var(--gold); 
-        }
-        .trophy-card i { font-size: 25px; color: var(--gold); margin-bottom: 8px; }
-
-        section { padding: 20px; border-bottom: 1px solid #333; }
         .title-sec { color: var(--gold); border-right: 5px solid var(--red); padding-right: 15px; margin-bottom: 20px; font-size: 1.3rem; font-weight: 900; }
 
-        .jersey-section { text-align: center; padding: 20px; background: rgba(0,0,0,0.3); border-radius: 20px; margin: 15px; border: 1px solid var(--gold); }
-        .jersey-img { width: 100%; max-width: 300px; border-radius: 15px; transition: 0.4s; cursor: pointer; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .jersey-img:hover { transform: scale(1.05) rotate(2deg); }
-        .order-label { display: block; margin-top: 15px; color: var(--gold); font-weight: bold; font-size: 1.2rem; animation: pumping 1.5s infinite; }
+        .trophy-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .trophy-card { background: rgba(26,26,26,0.8); padding: 15px; border-radius: 15px; text-align: center; border: 1px solid var(--gold); }
+        .trophy-card i { color: var(--gold); font-size: 25px; margin-bottom: 5px; }
 
         .players-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 10px; }
-        .player-card { 
-            background: rgba(30, 30, 30, 0.8); padding: 10px; border-radius: 8px; 
-            text-align: center; border: 1px solid #333; font-size: 0.85rem; transition: 0.3s;
-        }
-        .player-card:hover { border-color: var(--red); background: var(--red); transform: translateY(-3px); }
+        .player-card { background: rgba(30, 30, 30, 0.8); padding: 10px; border-radius: 8px; text-align: center; border: 1px solid #333; font-size: 0.85rem; transition: 0.3s; }
+        .player-card:hover { background: var(--red); }
 
-        .ultra-item { 
-            display: flex; align-items: center; background: rgba(26, 26, 26, 0.8); 
-            padding: 15px; border-radius: 15px; border-right: 4px solid var(--red); margin-bottom: 10px;
-        }
+        .ultra-item { display: flex; align-items: center; background: rgba(26, 26, 26, 0.8); padding: 15px; border-radius: 15px; border-right: 4px solid var(--red); margin-bottom: 10px; }
         .ultra-img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; margin-left: 15px; border: 2px solid var(--gold); }
-
-        .img-main { width: 100%; border-radius: 15px; border: 1px solid var(--red); margin-bottom: 15px; }
-        .pos-label { color: var(--red); font-weight: bold; margin: 25px 0 10px 0; border-bottom: 1px solid #333; display: block; font-size: 1.1rem; }
 
         .overlay { height: 0; width: 100%; position: fixed; z-index: 4000; top: 0; left: 0; background: rgba(0,0,0,0.95); transition: 0.5s; overflow-y: auto; text-align: center; }
         .btn-wa { background: #25D366; color: white; padding: 12px 25px; border-radius: 30px; text-decoration: none; display: inline-block; font-weight: bold; margin: 20px 0; }
 
-        .insta-card { background: rgba(26, 26, 26, 0.9); border-radius: 15px; padding: 25px; text-align: center; border: 1px solid #444; margin-top: 20px; }
-        .insta-btn { background: linear-gradient(45deg, #f09433, #dc2743, #bc1888); color: white; padding: 10px 20px; border-radius: 10px; text-decoration: none; display: inline-block; margin-top: 10px; font-weight: bold; }
-
-        #music-control {
-            position: fixed; bottom: 20px; left: 20px; z-index: 5000; 
-            background: var(--red); width: 55px; height: 55px; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            cursor: pointer; box-shadow: 0 0 15px rgba(217, 4, 41, 0.6); 
-            border: 2px solid var(--gold); transition: 0.3s;
-        }
+        #music-control { position: fixed; bottom: 20px; left: 20px; z-index: 5000; background: var(--red); width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid var(--gold); }
+        
+        /* ستايل مخصص لبطاقة المباراة القادمة المضافة */
+        .next-match-sec { margin: 20px 15px; background: rgba(0,0,0,0.8); border: 2px solid var(--gold); border-radius: 20px; padding: 20px; text-align: center; box-shadow: 0 0 15px rgba(239, 172, 5, 0.3); }
+        .match-teams { display: flex; justify-content: space-around; align-items: center; margin: 15px 0; }
+        .team { font-weight: 900; font-size: 1.1rem; }
+        .vs { color: var(--red); font-weight: 900; font-size: 1.4rem; }
+        .match-info { font-size: 0.9rem; color: #ccc; margin-bottom: 15px; }
+        .btn-ticket { background: var(--red); color: white; padding: 12px 25px; border-radius: 12px; text-decoration: none; display: inline-block; font-weight: bold; border: 1px solid var(--gold); transition: 0.3s; }
+        .btn-ticket:hover { background: var(--gold); color: var(--black); }
     </style>
 </head>
 
 <body>
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRRK6GQC"
-height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NRRK6GQC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
 <img src="Usma.jpeg" class="bg-logo" alt="USMA Background">
 
     <div id="music-control" onclick="toggleMusic()">
@@ -210,23 +157,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         </div>
     </div>
 
-    <div class="result-box">
-        <span class="result-title">🔴 نتيجة مباراة الذهاب 🔴</span>
-        <div class="score-container">
-            <div style="text-align: center;">
-                <img src="Usma.jpeg" width="50" style="border-radius: 5px;"><br>
-                <small>USMA</small>
-            </div>
-            <span class="score-num">1</span>
-            <span class="vs-text">-</span>
-            <span class="score-num">0</span>
-            <div style="text-align: center;">
-                <i class="fas fa-shield-alt" style="font-size: 40px; color: #777;"></i><br>
-                <small>الزمالك</small>
-            </div>
+    <div class="video-box">
+        <span style="color: var(--gold); font-weight: 900; font-size: 1.1rem; display: block; margin-bottom: 15px;">🔴⚫ احتفالات سوسطارة بالكأس الإفريقية 🏆</span>
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/IRvODq0SuOI?autoplay=1&mute=1&playlist=IRvODq0SuOI&loop=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <div class="win-label">فوز اتحاد العاصمة 🔥</div>
     </div>
+
+    <!-- قسم المباراة القادمة المضاف حديثاً -->
+    <section class="next-match-sec">
+        <span style="color: var(--gold); font-weight: 900; font-size: 1.2rem; display: block; border-bottom: 1px dashed var(--red); padding-bottom: 8px;">⚽ المباراة القادمة</span>
+        <div class="match-teams">
+            <div class="team" style="color: var(--red);">اتحاد العاصمة</div>
+            <div class="vs">VS</div>
+            <div class="team" style="color: var(--white);">أولمبيك أقبو</div>
+        </div>
+        <div class="match-info">
+            <i class="far fa-calendar-alt"></i> اليوم | <i class="far fa-clock"></i> 20:00
+        </div>
+        <a href="https:// those-tickets-link.com" target="_blank" class="btn-ticket"><i class="fas fa-ticket-alt"></i> اسحب تذكرتك</a>
+    </section>
 
     <div id="mySidebar" class="sidebar">
         <span class="close-btn" onclick="closeNav()">&times;</span>
@@ -237,7 +187,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
         <a href="#trophies" onclick="closeNav()">🏆 الألقاب</a>
         <a href="#players" onclick="closeNav()">👕 اللاعبين</a>
         <a href="#ultras" onclick="closeNav()">🥁 المجموعات</a>
-        <a href="https://digiticket.dz/" target="_blank">🎫 تذكرتي</a>
     </div>
 
     <div id="market" class="overlay">
@@ -261,28 +210,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
     </div>
 
     <section>
-        <div class="match-card">
-            <h2 style="margin:0; font-weight: 900;">🏆 نهائي الكونفيدرالية</h2>
-            <div class="timer-grid">
-                <div class="timer-unit"><span class="timer-num" id="days">0</span><span>يوم</span></div>
-                <div class="timer-unit"><span class="timer-num" id="hours">0</span><span>ساعة</span></div>
-                <div class="timer-unit"><span class="timer-num" id="min">0</span><span>دقيقة</span></div>
-                <div class="timer-unit"><span class="timer-num" id="sec">0</span><span>ثانية</span></div>
-            </div>
-            <br>
+        <div class="match-card" style="padding: 15px;">
             <a href="https://wa.me/213671746345" class="btn-advertise-big"><i class="fas fa-bullhorn"></i> أعلن معنا هنا!</a>
-            <br>
-            <a href="https://digiticket.dz/" target="_blank" class="btn-ticket-big"><i class="fas fa-ticket-alt"></i> اسحب تذكرتك قبل النفاذ</a>
-        </div>
-    </section>
-
-    <section id="jersey">
-        <h2 class="title-sec">👕 القميص الرسمي للاتحاد</h2>
-        <div class="jersey-section">
-            <a href="https://wa.me/213671746345">
-                <img src="1778147569999.jpg" class="jersey-img" alt="USMA Jersey">
-            </a>
-            <span class="order-label"><i class="fab fa-whatsapp"></i> للطلب اضغط على الصورة</span>
         </div>
     </section>
 
@@ -292,9 +221,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             <div class="trophy-card"><i class="fas fa-trophy"></i><br><b>8</b><br><small>بطولة</small></div>
             <div class="trophy-card"><i class="fas fa-medal"></i><br><b>10</b><br><small>كأس الجمهورية</small></div>
             <div class="trophy-card"><i class="fas fa-award"></i><br><b>2</b><br><small>سوبر جزائري</small></div>
-            <div class="trophy-card"><i class="fas fa-globe-africa"></i><br><b>1</b><br><small>كونفيدرالية</small></div>
-            <div class="trophy-card"><i class="fas fa-star"></i><br><b>1</b><br><small>سوبر إفريقي</small></div>
+            <div class="trophy-card"><i class="fas fa-globe-africa"></i><br><b>2</b><br><small>كونفيدرالية</small></div>
             <div class="trophy-card"><i class="fas fa-flag"></i><br><b>1</b><br><small>كأس العرب</small></div>
+            <div class="trophy-card"><i class="fas fa-star"></i><br><b>1</b><br><small>سوبر إفريقي</small></div>
         </div>
     </section>
 
@@ -304,39 +233,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
             <iframe width="100%" height="200" src="https://www.youtube.com/embed/rZGo6h2ccY4" frameborder="0" style="border-radius: 10px; border: 1px solid var(--red);" allowfullscreen></iframe>
             <p>كواليس نهائي كأس الجزائر</p>
         </div>
-        <div style="margin-bottom:20px;">
-            <img src="IMG_20260503_181805.jpg" style="width:100%; border-radius:10px;">
-            <p>تربص مغلق للفريق في سيدي موسى</p>
-        </div>
         <div>
-            <img src="images.jpeg" style="width:100%; border-radius:10px;">
-            <p>احتفالات الكأس العاشرة مستمرة</p>
+            <img src="FB_IMG_1779188789757.jpg" style="width:100%; border-radius:10px; border: 1px solid var(--red);">
+            <p>احتفالات بالدوبلي 🏆🏆</p>
         </div>
     </section>
 
     <section id="players">
         <h2 class="title-sec">👕 قائمة اللاعبين</h2>
-        <img src="Images (1).jpeg" class="img-main">
-
-        <span class="pos-label">🧤 حراس المرمى</span>
+        <img src="Images (1).jpeg" style="width:100%; border-radius:15px; border: 1px solid var(--red); margin-bottom: 20px;">
+        
+        <span style="color:var(--red); font-weight:bold; display:block; margin-bottom:10px;">🧤 حراس المرمى</span>
         <div class="players-grid">
             <div class="player-card">عبد المؤمن سيفور</div><div class="player-card">كمال صوفي</div><div class="player-card">أسامة بن بوط</div>
         </div>
 
-        <span class="pos-label">🛡️ الدفاع</span>
+        <span style="color:var(--red); font-weight:bold; display:block; margin: 20px 0 10px 0;">🛡️ الدفاع</span>
         <div class="players-grid">
             <div class="player-card">وليد كردي</div><div class="player-card">سيف الدين أثمانيا</div><div class="player-card">شي مالون</div>
             <div class="player-card">حسين دهيري</div><div class="player-card">سعدي رضواني</div><div class="player-card">ريان محروز</div>
             <div class="player-card">إلياس شتي</div><div class="player-card">أشرف عبادة</div><div class="player-card">هيثم لعويفي</div>
         </div>
 
-        <span class="pos-label">⚙️ وسط الميدان</span>
+        <span style="color:var(--red); font-weight:bold; display:block; margin: 20px 0 10px 0;">⚙️ وسط الميدان</span>
         <div class="players-grid">
             <div class="player-card">زكريا دراوي</div><div class="player-card">إسلام مريلي</div><div class="player-card">غلادي ليكونزا</div>
             <div class="player-card">إبراهيم بن زازة</div><div class="player-card">عمر بولاراس</div><div class="player-card">إيمي تيندينغ</div>
         </div>
 
-        <span class="pos-label">⚡ الهجوم</span>
+        <span style="color:var(--red); font-weight:bold; display:block; margin: 20px 0 10px 0;">⚡ الهجوم</span>
         <div class="players-grid">
             <div class="player-card">أحمد خالدِي</div><div class="player-card">رياض بن عياد</div><div class="player-card">خالد بوسليو</div>
             <div class="player-card">منصف بوتاوي</div><div class="player-card">محمد بودربارة</div><div class="player-card">حسام الدين غشة</div>
@@ -346,32 +271,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
     <section id="ultras">
         <h2 class="title-sec">🥁 المجموعات (Ultras)</h2>
-        <div class="ultras-grid">
-            <div class="ultra-item">
-                <img src="IMG_20260504_132621_583.jpg" class="ultra-img">
-                <span>Les Unionistes Algérois</span>
-            </div>
-            <div class="ultra-item">
-                <img src="IMG_20260504_132619_231.jpg" class="ultra-img">
-                <span>El Assima</span>
-            </div>
-            <div class="ultra-item">
-                <img src="IMG_20260504_132614_530.jpg" class="ultra-img">
-                <span>Alger offender</span>
-            </div>
-        </div>
+        <div class="ultra-item"><img src="IMG_20260504_132621_583.jpg" class="ultra-img"><span>Les Unionistes Algérois</span></div>
+        <div class="ultra-item"><img src="IMG_20260504_132619_231.jpg" class="ultra-img"><span>El Assima</span></div>
+        <div class="ultra-item"><img src="IMG_20260504_132614_530.jpg" class="ultra-img"><span>Alger offender</span></div>
     </section>
 
-    <section>
-        <div class="insta-card">
-            <i class="fab fa-instagram" style="font-size: 40px; color: #E1306C;"></i>
-            <h3 style="margin: 10px 0;">هل تريد تصميم موقع مثل هذا؟</h3>
-            <p style="font-size: 0.85rem; color: #aaa;">تابعني لتصلك أحدث أخبار الاتحاد وتصاميم حصرية للبهجة</p>
-            <a href="https://www.instagram.com/salah_da.47" target="_blank" class="insta-btn">Follow @salah_da.47</a>
-        </div>
-    </section>
-
-    <div style="text-align:center; padding:20px; color:var(--gold); font-weight:bold; font-size: 0.9rem;">صمم بكل فخر من طرف SALAH_DADDI 🔴⚫</div>
+    <div style="text-align:center; padding:25px; color:var(--gold); font-weight:bold;">صمم بكل فخر من طرف SALAH_DADDI 🔴⚫</div>
 
     <script>
         function openNav() { document.getElementById("mySidebar").style.width = "280px"; }
@@ -381,43 +286,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe>
 
         var myAudio = document.getElementById("bg-music");
         var musicIcon = document.getElementById("music-icon");
-        var musicControl = document.getElementById("music-control");
-
         function toggleMusic() {
             if (myAudio.paused) {
-                var playPromise = myAudio.play();
-                if (playPromise !== undefined) {
-                    playPromise.then(function() {
-                        musicIcon.classList.remove("fa-music");
-                        musicIcon.classList.add("fa-pause");
-                        musicControl.style.animation = "pumping 1.5s infinite";
-                    }).catch(function(error) {
-                        console.log("التشغيل التلقائي ممنوع: " + error);
-                    });
-                }
+                myAudio.play();
+                musicIcon.classList.replace("fa-music", "fa-pause");
             } else {
                 myAudio.pause();
-                musicIcon.classList.remove("fa-pause");
-                musicIcon.classList.add("fa-music");
-                musicControl.style.animation = "none";
+                musicIcon.classList.replace("fa-pause", "fa-music");
             }
         }
-
-        // تم ضبط التاريخ لـ 16 ماي 2026 على الساعة 19:00
-        var finalDate = new Date("May 16, 2026 19:00:00").getTime();
-        setInterval(function() {
-            var now = new Date().getTime();
-            var d = finalDate - now;
-            if(d > 0) {
-                document.getElementById("days").innerHTML = Math.floor(d / (1000 * 60 * 60 * 24));
-                document.getElementById("hours").innerHTML = Math.floor((d % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                document.getElementById("min").innerHTML = Math.floor((d % (1000 * 60 * 60)) / (1000 * 60));
-                document.getElementById("sec").innerHTML = Math.floor((d % (1000 * 60)) / 1000);
-            }
-        }, 1000);
     </script>
-
-    <script defer src="/_vercel/insights/script.js"></script>
-
 </body>
 </html>
